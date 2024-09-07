@@ -6,5 +6,5 @@ print(f"Количество символов в строке: {len(my_string)}"
 print(f"Строка в верхнем регистре: {my_string.upper()}")
 print(f"Строка в нижнем регистре: {my_string.lower()}")
 print(f"Строка без пробелов: {my_string.replace(' ', '')}")
-print(f"Первый символ: {my_string[0]}")
-print(f"Последний символ: {my_string[-1]}")
+print(f"Первый символ: '{my_string[0]}'")
+print(f"Последний символ: '{my_string[-1]}'")

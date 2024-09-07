@@ -3,8 +3,8 @@
 my_string = input("Введите строку для подсчета символов в ней: ")
 print(f"Количество символов в строке: {len(my_string)}")
 
-print(my_string.upper())  # Преобразование строки в верхний регистр
-print(my_string.lower())  # Преобразование строки в нижний регистр
-print(my_string.replace(" ", ""))  # Удаление пробелов
-print(my_string[0])  # Получение первого символа
-print(my_string[-1])  # Получение последнего символа
+print(f"Строка в верхнем регистре: {my_string.upper()}")
+print(f"Строка в нижнем регистре: {my_string.lower()}")
+print(f"Строка без пробелов: {my_string.replace(' ', '')}")
+print(f"Первый символ: {my_string[0]}")
+print(f"Последний символ: {my_string[-1]}")

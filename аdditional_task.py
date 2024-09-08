@@ -19,4 +19,3 @@ average_grades = [sum(grade) / len(grade) for grade in grades]
 result = dict(zip(students_sorted_list, average_grades))
 
 print(result)
-

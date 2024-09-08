@@ -10,7 +10,7 @@ grades = [[5, 3, 3, 5, 4], [2, 2, 2, 3], [4, 5, 5, 2], [4, 4, 3], [5, 5, 5, 4, 5
 students = {'Johnny', 'Bilbo', 'Steve', 'Khendrik', 'Aaron'}
 
 # Переведем set в list и отсортируем в алфавитном порядке
-students_sorted_list = sorted(list(students))
+students_sorted_list = sorted(students)
 
 # Посчитаем средний балл каждого студента используя "list comprehension"
 average_grades = [sum(grade) / len(grade) for grade in grades]

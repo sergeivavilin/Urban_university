@@ -16,19 +16,25 @@
 Стек вызовов будет выглядеть следующим образом:
 get_multiplied_digits(40203) -> 4 * get_multiplied_digits(203) -> 4 * 2 * get_multiplied_digits(3) -> 4 * 2 * 3
 """
-
+# Создаем флаг наличия нулей в строке
 contain_zeroes = True
 
-def get_multiplied_digits(number: str):
+def get_multiplied_digits(number: str) -> int:
     global contain_zeroes
-    if contain_zeroes and number.count("0"):
+    # Проверяем наличие нулей в строке при первом вызове
+    if contain_zeroes and number.count("0"): # A tckb ytn yektq&
+        # Удаляем нули из строки
         number = "".join([i for i in number if i != "0"])
+        # Меняем флаг, теперь строка не содержит нули
         contain_zeroes = False
-
-    if len(number) == 1:
+    # Если длина строки больше 1 символа запускаем рекурсию
+    if len(number) > 1:
+        return int(number[0]) * get_multiplied_digits(number[1:])
+    elif len(number) == 1:
         return int(number[0])
     else:
-        return int(number[0]) * get_multiplied_digits(number[1:])
+        return 0
 
-result = get_multiplied_digits("123")
+
+result = get_multiplied_digits("")
 print(result)

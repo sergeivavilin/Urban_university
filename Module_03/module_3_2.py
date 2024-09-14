@@ -28,15 +28,21 @@ message(сообщение), recipient(получатель)
 За один вызов функции выводится только одно и перечисленных уведомлений! Проверки перечислены по мере выполнения.
 
 """
+def consist_commercial_at(recipient: str, sender: str) -> bool:
+    return "@" in (sender and recipient)
+
+def correct_domain(recipient: str, sender: str) -> bool:
+    allowed_domain = (".com", ".ru", ".net")
+    return recipient.endswith(allowed_domain) and sender.endswith(allowed_domain)
+
+def correct_email(recipient: str, sender: str) -> bool:
+    return  consist_commercial_at(recipient, sender) and correct_domain(recipient, sender)
 
 def send_email(message: str, recipient: str, sender: str="university.help@gmail.com"):
     recipient = recipient.lower()
     sender = sender.lower()
 
-    if (
-        (not "@" in (recipient or sender))
-        or not ((recipient and sender).endswith((".com", ".ru", ".net")))
-    ):
+    if not correct_email(recipient, sender):
         print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}")
     elif sender == recipient:
         print("Нельзя отправить письмо самому себе!")
@@ -46,22 +52,23 @@ def send_email(message: str, recipient: str, sender: str="university.help@gmail.
         print(f"Письмо успешно отправлено с адреса {sender} на адрес {recipient}.")
 
 
-send_email(
-    'Это сообщение для проверки связи',
-    'vasyok1337@gmail.com'
-)
-send_email(
-    'Вы видите это сообщение как лучший студент курса!',
-    'urban.fan@mail.ru',
-    sender='urban.info@gmail.com'
-)
-send_email(
-    'Пожалуйста, исправьте задание',
-    'urban.student@mail.ru',
-    sender='urban.teacher@mail.uk'
-)
-send_email(
-    'Напоминаю самому себе о вебинаре',
-    'urban.teacher@mail.ru',
-    sender='urban.teacher@mail.ru'
-)
+if __name__ == '__main__':
+    send_email(
+        'Это сообщение для проверки связи',
+        'vasyok1337@gmail.com'
+    )
+    send_email(
+        'Вы видите это сообщение как лучший студент курса!',
+        'urban.fan@mail.ru',
+        sender='urban.info@gmail.com'
+    )
+    send_email(
+        'Пожалуйста, исправьте задание',
+        'urban.student@mail.ru',
+        sender='urban.teacher@mail.uk'
+    )
+    send_email(
+        'Напоминаю самому себе о вебинаре',
+        'urban.teacher@mail.ru',
+        sender='urban.teacher@mail.ru'
+    )

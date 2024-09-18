@@ -29,7 +29,7 @@ class Pegasus(Eagle, Horse):
         return self.x_distance, self.y_distance
 
     def voice(self):
-        return self.sound
+        print(self.sound)
 
 
 if __name__ == '__main__':

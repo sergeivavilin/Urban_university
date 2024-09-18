@@ -1,6 +1,5 @@
 class Horse:
     def __init__(self):
-        super().__init__()
         self.x_distance = 0
         self.sound = "Frr"
 
@@ -10,16 +9,17 @@ class Horse:
 
 class Eagle:
     def __init__(self):
+        super().__init__()
         self.y_distance = 0
         self.sound = "I train, eat, sleep, and repeat"
 
     def fly(self, dy: int):
         self.y_distance += dy
 
-class Pegasus(Horse, Eagle):
+
+class Pegasus(Eagle, Horse):
     def __init__(self):
         super().__init__()
-
 
     def move(self, dx: int, dy: int):
         self.run(dx)

@@ -1,6 +1,3 @@
-from typing import Collection
-
-
 def personal_sum(numbers):
     incorrect_data = 0
     summ = 0
@@ -16,19 +13,16 @@ def personal_sum(numbers):
 
 
 def calculate_average(numbers):
-    if not isinstance(numbers, Collection):
+    try:
+        sum_of_numbers, incorrect_data = personal_sum(numbers)
+    except TypeError:
         print("В numbers записан некорректный тип данных")
-        return None
-
-    sum_of_numbers, incorrect_data = personal_sum(numbers)
+        return
 
     try:
         result = sum_of_numbers / (len(numbers) - incorrect_data)
     except ZeroDivisionError:
         result = 0
-    except TypeError:
-        print("В numbers записан некорректный тип данных")
-        result = None
 
     return result
 

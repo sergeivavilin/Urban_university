@@ -1,4 +1,8 @@
+from functools import wraps
+
+
 def is_prime(func):
+    @wraps(func)
     def wrapper(*args):
         number = func(*args)
 
@@ -7,7 +11,6 @@ def is_prime(func):
         # Проверим если число четное, то оно составное изначально
         elif number < 2 or number % 2 == 0:
             prime = False
-
         else:
             # Пройдемся по всем нечетным делителям числа от 3-х до корня из этого числа,
             # Если цикл закончился без прерывания, то число простое
@@ -18,7 +21,7 @@ def is_prime(func):
             else:
                 prime = True
 
-        print(f"{'Простое' if prime else 'Составное'}")
+        print(f"{'Простое' if prime else 'Не простое'}")
         return number
     return wrapper
 
@@ -29,9 +32,8 @@ def sum_three(*args):
 
 
 if __name__ == '__main__':
-
     result = sum_three(2, 3, 6)
     print(result)
-    # Можно передавать любое количество чисел, но не обязательно)
+    # Можно передавать любое количество чисел, но не обязательно
     result = sum_three(2, 3, 6, 7, 8)
     print(result)

@@ -29,8 +29,8 @@ class Bank:
                 print(f"Запрос отклонён, недостаточно средств")
                 self.lock.acquire()
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     bk = Bank()
 
     th1 = Thread(target=Bank.deposit, args=(bk,))

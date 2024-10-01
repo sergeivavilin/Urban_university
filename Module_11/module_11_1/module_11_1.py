@@ -179,7 +179,7 @@ def best_volatility_analyzer(dir_for_analyzer: str):
 def main():
     # Взаимодействуем с API и меняем цвет картинок на черно-белый
     api_url = 'https://randomuser.me/api/?results='
-    amount_users = 10
+    amount_users = 5
     change_color_users_foto(api_url, amount_users)
 
     # Рассчитываем волатильность ценных бумаг

@@ -54,9 +54,5 @@ def introspection_info(obj):
 
 
 if __name__ == '__main__':
-
     test_obj = IntrospectionClass()
-
     introspection_info(test_obj)
-
-

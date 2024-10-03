@@ -1,8 +1,11 @@
 import unittest
 
-from runner_2 import Tournament, Runner
+from Module_12.module_12_2.runner_2 import Tournament, Runner
 
 
+IS_FROZEN = True
+
+@unittest.skipIf(IS_FROZEN, "Тесты в этом кейсе заморожены")
 class TournamentTests(unittest.TestCase):
 
     @classmethod

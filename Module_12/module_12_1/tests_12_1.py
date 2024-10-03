@@ -1,8 +1,12 @@
 import unittest
 
-from runner import Runner
+from Module_12.module_12_1.runner import Runner
 
 
+IS_FROZEN = False
+
+
+@unittest.skipIf(IS_FROZEN, "Тесты в этом кейсе заморожены")
 class RunnerTests(unittest.TestCase):
     def test_walk(self):
         runner_1 = Runner("test_runner_1")

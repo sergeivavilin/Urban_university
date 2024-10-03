@@ -50,6 +50,16 @@ class TournamentTests(unittest.TestCase):
 
         self.assertTrue(self.all_results["testTournamentThreeRunners"][3] == self.runner_3)
 
+    def testTournamentThreeRunnersRandom(self):
+        self.tournament = Tournament(
+            90,
+            self.runner_3, self.runner_1, self.runner_2
+        )
+
+        self.all_results["testTournamentThreeRunnersRandom"] = (self.tournament.start())
+
+        self.assertTrue(self.all_results["testTournamentThreeRunnersRandom"][3] == self.runner_3)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -39,16 +39,41 @@ class Tournament:
     #
     #     return finishers
 
+    # Вариант определением победителя по времени бега
+    # def start(self):
+    #     finishers = {}
+    #     results_list = []
+    #
+    #     # Для определения победителя считаем время бега на каждого участника
+    #     for participant in self.participants:
+    #
+    #         time_participant = round(self.full_distance / participant.speed, 4)
+    #         results_list.append((time_participant, participant.name))
+    #
+    #     # сортируем по времени бега
+    #     results_list.sort(key=lambda x: x[0])
+    #
+    #     # Собираем в словарь участников и присваиваем им места согласно времени бега
+    #     for i in range(1, len(results_list) + 1):
+    #         finishers[i] = results_list[i - 1][1]
+    #
+    #     return finishers
+
+    # Вариант с использованием метода run, но без опасного удаления из итерируемой последовательности
     def start(self):
         finishers = {}
         results_list = []
 
-        # Для определения победителя считаем время бега на каждого участника
+        # Для определения победителя считаем количество циклов бега на каждом участнике
         for participant in self.participants:
-            time_participant = self.full_distance / participant.speed
-            results_list.append((time_participant, participant.name))
+            cycles = 0
+            while participant.distance < self.full_distance and participant.speed > 0:
+                participant.run()
+                cycles += 1
+                if participant.distance >= self.full_distance:
+                    results_list.append((cycles, participant.name))
 
-        # сортируем по времени бега
+        # сортируем по кол-ву циклов бега
         results_list.sort(key=lambda x: x[0])
 
         # Собираем в словарь участников и присваиваем им места согласно времени бега

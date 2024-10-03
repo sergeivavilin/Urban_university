@@ -1,0 +1,15 @@
+2024-10-03 18:56:15,824 | INFO | test_challenge выполнен успешно
+2024-10-03 18:56:15,825 | WARNING | Неверный тип данных для объекта Runner
+Traceback (most recent call last):
+  File "/home/human/Desktop/CODE/Urban_university/Module_12/module_12_4/tests_12_4.py", line 34, in test_run
+    runner_2 = Runner(-1)
+  File "/home/human/Desktop/CODE/Urban_university/Module_12/module_12_4/rt_with_exceptions.py", line 7, in __init__
+    raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
+TypeError: Имя может быть только строкой, передано int
+2024-10-03 18:56:15,825 | WARNING | Неверная скорость для Runner
+Traceback (most recent call last):
+  File "/home/human/Desktop/CODE/Urban_university/Module_12/module_12_4/tests_12_4.py", line 22, in test_walk
+    runner_1 = Runner("Vasya", -1)
+  File "/home/human/Desktop/CODE/Urban_university/Module_12/module_12_4/rt_with_exceptions.py", line 12, in __init__
+    raise ValueError(f'Скорость не может быть отрицательной, сейчас {speed}')
+ValueError: Скорость не может быть отрицательной, сейчас -1

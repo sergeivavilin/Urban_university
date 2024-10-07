@@ -12,7 +12,7 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 
 # Создаем бота, токен лучше хранить в переменной окружения
 # или использовать файл .env и библиотеки для работы с переменными (python-dotenv, decouple и т.д.)
-bot = Bot(token="5678100258:AAGl_uq8lOzwMxfeXNdAkqKhAJKj_aJT3zc")
+bot = Bot(token="BOT_TOKEN")
 # Инициализируем диспатчер
 dp = Dispatcher(storage=MemoryStorage())
 # Создаем базовый роутер (в версии 3.x используется либо Router() либо dp.message вместо dp.message_handler)

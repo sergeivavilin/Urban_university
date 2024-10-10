@@ -56,11 +56,11 @@ cursor.executemany(delete_user, [(id_,) for id_ in range(1, 11, 3)])
 cursor.execute(select_users_by_age)
 data = cursor.fetchall()
 
-# Выводим данные пользователей на экран
-for username, email, age, balance in data:
-    print(f"Имя: {username} | Почта: {email} | Возраст: {age} | Баланс: {balance}")
-
 # Сохраняем изменения в базу данных
 connection.commit()
 # Закрываем соединение с базой данных
 connection.close()
+
+# Выводим отфильтрованные данные пользователей на экран
+for username, email, age, balance in data:
+    print(f"Имя: {username} | Почта: {email} | Возраст: {age} | Баланс: {balance}")

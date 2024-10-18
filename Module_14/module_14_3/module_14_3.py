@@ -49,7 +49,7 @@ kb = ReplyKeyboardBuilder()
 # Устанавливаем максимальное количество кнопок в строке
 kb.max_width = 2  
 kb.row(
-KeyboardButton(text="Рассчитать"),
+    KeyboardButton(text="Рассчитать"),
     KeyboardButton(text="Информация"),
     KeyboardButton(text="Купить")
 )

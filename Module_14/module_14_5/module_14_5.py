@@ -10,8 +10,7 @@ from aiogram.types import Message, CallbackQuery, FSInputFile, InputMediaPhoto
 from dotenv import load_dotenv
 
 from Module_14.module_14_5.States import UserState, RegistrationState
-from Module_14.module_14_5.crud_functions import initiate_db, add_product, get_all_products, drop_db, is_included, \
-    add_user
+from Module_14.module_14_5.crud_functions import initiate_db, add_product, get_all_products, is_included, add_user
 from Module_14.module_14_5.keyboards import kb, inline_buy_menu, inline_formulas
 
 

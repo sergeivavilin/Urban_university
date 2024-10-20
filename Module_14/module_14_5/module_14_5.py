@@ -31,15 +31,15 @@ base_router = Router()
 # Прописываем путь до папки с картинками
 all_media_dir = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "all_media"))
 
+# Инициализируем базу данных
 def db_init():
     initiate_db()
     # Добавляем товары в базу
     for i in range(1, 5):
         add_product(i)
 
-
+# Создаем медиа группу для картинок всех товаров
 def create_photo_list():
-    # Создаем медиа группу для картинок всех товаров
     photo_list = []
     all_products_list = get_all_products()
     for number, file in enumerate(os.listdir(all_media_dir)):
@@ -54,6 +54,9 @@ def create_photo_list():
         photo_list.append(photo_file)
     return photo_list
 
+# ----------------------------------------------------------------------------------------------------------------------
+# Хендлеры сообщений пользователя
+# ----------------------------------------------------------------------------------------------------------------------
 
 # Класс CommandStart обрабатывает только на команду /start.
 @base_router.message(CommandStart())
@@ -93,7 +96,6 @@ async def send_confirm_message(call: CallbackQuery):
 @base_router.callback_query(F.data.contains("formulas"))
 async def get_formulas(call: CallbackQuery):
     await call.message.answer(text=f"10 x вес(кг) + 6.25 x рост(см) - 5 x возраст(лет) - 161")
-
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Цепочка состояний UserState
@@ -136,7 +138,6 @@ async def send_calories(message: Message, state: FSMContext):
     await message.answer(f"Ваша норма калорий: {man_calories} ккал")
     # Сбрасываем состояния пользователя
     await state.clear()
-
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Цепочка состояний RegistrationState
@@ -182,9 +183,8 @@ async def set_age(message: Message, state: FSMContext):
     await state.clear()
 
 # ----------------------------------------------------------------------------------------------------------------------
-# Цепочка состояний RegistrationState
+# Неотлавливаемые сообщения
 # ----------------------------------------------------------------------------------------------------------------------
-
 
 # Если оставить роутер без аргументов, то он будет отлавливать все необработанные ранее сообщения
 @base_router.message()

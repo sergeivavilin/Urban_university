@@ -82,7 +82,7 @@ def update_user(
         ]
 ) -> dict:
     users.pop(user_id)
-    return {"message": f"User {user_id} has been updated"}
+    return {"message": f"User {user_id} has been deleted"}
 
 
 if __name__ == '__main__':

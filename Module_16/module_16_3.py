@@ -70,7 +70,7 @@ def update_user(
     return {"message": f"User {user_id} has been updated"}
 
 @app.delete("/user/{user_id}")
-def update_user(
+def delete_user(
         user_id: Annotated[
             int,
             Path(

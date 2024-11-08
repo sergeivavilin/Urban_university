@@ -19,7 +19,7 @@ def find_user(user_id: int) -> int | None:
     """
     Находит пользователя по id, и возвращает его индекс в списке
     :param user_id: int
-    :return: User
+    :return: int | None
     """
     for idx, user in enumerate(users):
         if user.id == user_id:
